@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 
-const CategoryBooksScreen = () => {
+const BooksView = () => {
     return (
         <View>
             <Text>Libros</Text>
@@ -9,6 +9,6 @@ const CategoryBooksScreen = () => {
     );
 };
 
-export default CategoryBooksScreen;
+export default BooksView;
 
 const styles = StyleSheet.create({})

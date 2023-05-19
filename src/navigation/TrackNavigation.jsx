@@ -4,10 +4,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import CategoriesScreen from "../screens/CategoriesScreen";
-import CategoryMovieScreen from "../screens/CategoryMovieScreen";
-import CategorySerieScreen from "../screens/CategorySerieScreen";
-import CategoryVideoGamesScreen from "../screens/CategoryVideoGamesScreen";
-import CategoryBooksScreen from "../screens/CategoryBooksScreen";
+import MoviesView from "../screens/CategoryMovieScreen";
+import SeriesView from "../screens/CategorySerieScreen";
+import VideoGamesView from "../screens/CategoryVideoGamesScreen";
+import BooksView from "../screens/CategoryBooksScreen";
 import { COLORS } from "../constants/colors";
 
 const TrackNavigation = () => {
@@ -32,10 +32,10 @@ const TrackNavigation = () => {
                         title:"CATEGORIES",
                     }}
                 />
-                <stack.Screen name="MovieScreen" component={CategoryMovieScreen} />
-                <stack.Screen name="SerieScreen" component={CategorySerieScreen} />
-                <stack.Screen name="VideoGamesScreen" component={CategoryVideoGamesScreen} />
-                <stack.Screen name="BooksScreen" component={CategoryBooksScreen} />
+                <stack.Screen name="MovieScreen" component={MoviesView} />
+                <stack.Screen name="SerieScreen" component={SeriesView} />
+                <stack.Screen name="VideoGamesScreen" component={VideoGamesView} />
+                <stack.Screen name="BooksScreen" component={BooksView} />
             </stack.Navigator>
         </NavigationContainer>
     );

@@ -1,7 +1,7 @@
 import {StyleSheet, View, Text } from "react-native";
 import React from "react";
 
-const CategorySerieScreen = () => {
+const SeriesView = () => {
     return (
         <View>
             <Text>Series</Text>
@@ -9,6 +9,6 @@ const CategorySerieScreen = () => {
     );
 };
 
-export default CategorySerieScreen;
+export default SeriesView;
 
 const styles = StyleSheet.create({})
