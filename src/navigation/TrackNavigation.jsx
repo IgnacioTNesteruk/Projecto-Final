@@ -29,7 +29,7 @@ const TrackNavigation = () => {
                     name="Home"
                     component={CategoriesScreen}
                     options={{
-                        title:"categories",
+                        title:"CATEGORIES",
                     }}
                 />
                 <stack.Screen name="MovieScreen" component={CategoryMovieScreen} />

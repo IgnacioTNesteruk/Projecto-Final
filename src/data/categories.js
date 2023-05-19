@@ -23,7 +23,6 @@ export const CATEGORIES = [
     {
         id: "4",
         title: "Libros",
-
         img:"https://cloudfront-us-east-1.images.arcpublishing.com/eluniverso/NPCMI7NVIRGLBJXCI3VYOEWGPE.jpg",
         color: COLORS.quatenary,
     },

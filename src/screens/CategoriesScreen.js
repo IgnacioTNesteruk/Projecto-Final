@@ -6,11 +6,10 @@ import CategoriesItem from "../components/CategoriesItem";
 
 const CategoriesScreen = ({navigation}) => {
 
-    const handleSelectedCategory = item => (navigation.navigate(item.screen), {params})
+    const handleSelectedCategory = item => (navigation.navigate(item.screen), {categoryId: item.id, name:item.title,})
     
-
     const renderCategoriesItem = ({ item }) =>(
-        <View style ={styles.categoriesConatiner}>
+        <View style ={styles.categoriesContainer}>
             <CategoriesItem item={item} onSelected={handleSelectedCategory}/>
         </View>
     );
@@ -35,7 +34,7 @@ const styles = StyleSheet.create({
         alignItems:"center",
         backgroundColor: "white",
     },  
-    categoriesConatiner:{
+    categoriesContainer:{
         padding: 15,
         height: 185,
     }
