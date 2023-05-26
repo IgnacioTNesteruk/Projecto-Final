@@ -1,48 +1,56 @@
-import { View,StyleSheet,FlatList } from "react-native";
-import React from "react";
-import { GAMES } from "../data/games";
+import { View, StyleSheet, FlatList } from "react-native";
+import React, { useEffect } from "react";
 import ProductsItem from "../components/ProductsItem"
+import { useSelector,useDispatch } from "react-redux";
+import {selectedGames, filteredGames} from "../store/actions/games.action";
+ 
 
 const VideoGamesScreen = ({ navigation, route }) => {
 
-    const VideosGames = GAMES.filter(games => games.category === route.params.categoryId)
+    const filteredGames = useSelector(state => state.games.filteredGames);
+    const categorySelected = useSelector(state => state.categories.selected);
+    const dispatch = useDispatch()
 
-    const handleSelectedProduct =(item) =>{
-        navigation.navigate("Detail",{
-            product: item, 
+    useEffect(() => {
+        dispatch(filteredGames(categorySelected.id));
+    }, [])
+
+    const handleSelectedProduct = item => {
+        dispatch(selectedGames(item.id))
+        navigation.navigate("Detail", {
             name: item.name,
         });
     };
 
-    const renderProductItem = ({item}) => (
+    const renderProductItem = ({ item }) => (
         <View style={styles.ProductsItem}>
-            <ProductsItem item={item} onSelected={handleSelectedProduct}/>
+            <ProductsItem item={item} onSelected={handleSelectedProduct} />
         </View>
     );
 
     return (
         <View style={styles.container}>
             <FlatList
-            data={VideosGames}
-            renderItem={renderProductItem}
-            keyExtractor={item => item.id}
-            numbColumns={2}
+                data={filteredGames}
+                renderItem={renderProductItem}
+                keyExtractor={item => item.id}
+                numbColumns={2}
             />
         </View>
     );
 };
 
-export default VideoGamesScreen; 
+export default VideoGamesScreen;
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "white",
     },
-    ProductsItem:{
-       height: 320,
-       width:410,
+    ProductsItem: {
+        height: 320,
+        width: 410,
     },
 })

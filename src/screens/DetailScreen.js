@@ -1,15 +1,14 @@
 import { View, Text, StyleSheet } from "react-native";
+import { useSelector } from "react-redux";
 import React from "react";
 
-const DetailScreen = ({route}) => {
+const DetailScreen = () => {
 
-    const videosgames = route.params.product;
+    const videosgames = useSelector(state =>state.games.selected)
 
     return (
         <View>
-            <Text>{videosgames.name}</Text>
             <Text>{videosgames.description}</Text>
-            <Text>{videosgames.release}</Text>
         </View>
     );
 };
