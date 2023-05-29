@@ -9,6 +9,7 @@ const DetailScreen = () => {
     return (
         <View>
             <Text>{videosgames.description}</Text>
+            <Text>{videosgames.release  }</Text>
         </View>
     );
 };

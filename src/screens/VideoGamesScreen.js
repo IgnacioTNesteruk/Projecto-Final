@@ -2,17 +2,17 @@ import { View, StyleSheet, FlatList } from "react-native";
 import React, { useEffect } from "react";
 import ProductsItem from "../components/ProductsItem"
 import { useSelector,useDispatch } from "react-redux";
-import {selectedGames, filteredGames} from "../store/actions/games.action";
+import {setFilteredGames,selectedGames} from "../store/actions/games.action";
  
 
-const VideoGamesScreen = ({ navigation, route }) => {
+const VideoGamesScreen = ({ navigation }) => {
 
     const filteredGames = useSelector(state => state.games.filteredGames);
     const categorySelected = useSelector(state => state.categories.selected);
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(filteredGames(categorySelected.id));
+        dispatch(setFilteredGames(categorySelected.id));
     }, [])
 
     const handleSelectedProduct = item => {
